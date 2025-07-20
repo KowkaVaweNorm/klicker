@@ -1,0 +1,48 @@
+.stone_wrapper {
+  position: relative;
+  animation: bounce 2s infinite;
+}
+
+.stone {
+  display: block;
+  position: relative;
+  width: 20vw;
+  min-width: 200px;
+  height: auto;
+  cursor: pointer;
+  //   transition: transform 0.01s ease-in-out;
+  object-fit: contain;
+  touch-action: manipulation;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  outline: none;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:focus-visible {
+    outline: none;
+  }
+  @media screen and (width < 240px) {
+    .active {
+      transform: scale(1);
+    }
+    width: 90vw;
+  }
+  @media (pointer: coarse) and (hover: none) {
+    .active {
+      transform: scale(0.9);
+    }
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

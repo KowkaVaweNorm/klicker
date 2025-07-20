@@ -1,0 +1,23 @@
+/* размеры устройств */
+$laptop-l-plus: 1650px;
+$laptop-width: 768px;
+$mobile-width: 425px;
+$small-mobile-width: 320px;
+
+@mixin desktop {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 350px) {
+    @content;
+  }
+}

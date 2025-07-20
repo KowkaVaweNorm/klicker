@@ -1,0 +1,60 @@
+.wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 450px;
+  width: min(450px, 90vw);
+  height: 350px;
+  @media screen and (width < 1250px) {
+    position: relative;
+    width: 300px;
+    height: 200px;
+  }
+  @media screen and (width < 305px) {
+    height: 64vw;
+    width: min(450px, 95vw);
+  }
+  .table_stats_img {
+    pointer-events: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  .text_block {
+    position: absolute;
+    top: 120px;
+    left: 52px;
+    right: 52px;
+    bottom: 40px;
+    // border: 1px solid white;
+    color: white;
+    font-style: italic;
+    font-size: 30px;
+    overflow: auto;
+
+    @media screen and (width < 1250px) {
+      top: 70px;
+      left: 32px;
+      right: 32px;
+      bottom: 20px;
+      font-size: 30px;
+    }
+    @media screen and (width < 305px) {
+      top: 22vw;
+      left: 11vw;
+      right: 12vw;
+      bottom: 8vw;
+      font-size: 8vw;
+    }
+  }
+  .stone_icon {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+    @media screen and (width < 305px) {
+      width: 8vw;
+      height: 8vw;
+    }
+  }
+}

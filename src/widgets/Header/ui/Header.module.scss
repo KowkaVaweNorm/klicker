@@ -1,0 +1,28 @@
+$primary-color: #f5eed9;
+$secondary-color: #a37c5d;
+
+$spacing: 8px;
+$border-radius: 12px;
+$border-style: 2px solid #82664e;
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  border-bottom: 2px solid #6b5a45;
+  z-index: 2;
+  opacity: 0.8;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: center;
+  padding: $spacing;
+  border: $border-style;
+  color: #f5eed9;
+  background: linear-gradient(90deg, #82664e, #a37c5d);
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+}

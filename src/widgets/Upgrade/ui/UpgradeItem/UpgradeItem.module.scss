@@ -1,0 +1,30 @@
+.wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  border-radius: 26px;
+  background-color: #5f3619;
+
+  &:hover:not(.disabled) {
+    cursor: pointer;
+    filter: contrast(130%);
+  }
+  &:active:not(.disabled) {
+    filter: contrast(170%);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  @media screen and (width < 1250px) {
+    height: 70px;
+  }
+  .logo {
+    width: 100px;
+    @media screen and (width < 1250px) {
+      width: 70px;
+    }
+  }
+}

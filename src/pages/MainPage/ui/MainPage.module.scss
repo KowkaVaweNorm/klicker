@@ -1,0 +1,84 @@
+// Основные темные тона
+$bg-color: #0d0f17;
+// $primary-color: #2a2c3b;
+// $secondary-color: #1f212e;
+
+// // Земляные/грязные акценты
+// $earth-brown: #6b5e48;
+// $muddy-green: #556b3c;
+// $rust-orange: #b85b3e;
+
+// // Цвет бриллианта
+// $diamond-base: #a0dfff;
+// $diamond-highlight: #e0f7ff;
+// $diamond-shadow: #3a5f8c;
+// $glow-effect: #00f8ff;
+
+.wrap_main {
+  touch-action: pan-x pan-y;
+  --dark-goldenrod: #bd8330ff;
+  --smoky-black: #1f1c10ff;
+  --smoky-black-2: #1b1509ff;
+  --seal-brown: #4c2908ff;
+  --bistre: #2a1905ff;
+  background-color: $bg-color;
+  z-index: 0;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @supports (height: 100dvh) {
+    min-height: 100dvh;
+  }
+
+  .bg_tunnel_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 950px;
+    // overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .bg_tunnel {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  .middle_column {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    z-index: 2;
+    // border: 1px solid white;
+    justify-content: center;
+    @media screen and (width < 1250px) {
+      align-items: center;
+      justify-content: initial;
+    }
+
+    .upgrades {
+      position: absolute;
+      left: 0;
+      top: 390px;
+      bottom: 100px;
+      // height: calc(100vh - 360px);
+      max-height: calc(100vh - 390px);
+      @media screen and (width < 1250px) {
+        position: static;
+        bottom: 0px;
+      }
+    }
+  }
+  @supports (height: 100dvh) {
+    .middle_column {
+      height: 100dvh;
+    }
+  }
+}
