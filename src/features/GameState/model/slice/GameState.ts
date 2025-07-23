@@ -26,12 +26,12 @@ export const gameStateSlice = buildSlice({
         );
       }
     },
-    applyPassiveClicks: (state: TGameStateSchema, _: PayloadAction<void>) => {
-      if (state.clicks + state.passiveIncome < Number.MAX_SAFE_INTEGER) {
-        state.clicks += state.passiveIncome;
+    addClicks: (state: TGameStateSchema, payload: PayloadAction<number>) => {
+      if (state.clicks + payload.payload < Number.MAX_SAFE_INTEGER) {
+        state.clicks += payload.payload;
       } else {
         console.error(
-          'Add Passive clicks is not possible, clicks is very large number',
+          'Add clicks is not possible, clicks is very large number',
         );
       }
     },

@@ -1,23 +1,46 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { usePassiveIncome } from '../selectors';
 import { useGameStateActions } from '../slice/GameState';
 
-const TICK_INTERVAL_MS = 500;
-
 export const useShedulePassiveIncome = () => {
   const passiveIncome = usePassiveIncome();
-  const { applyPassiveClicks } = useGameStateActions();
+  const { addClicks } = useGameStateActions();
+
+  const lastTime = useRef<number | null>(null);
+  const timeAccumulator = useRef(0);
+  const tick = useCallback(
+    (currentTime: number) => {
+      if (lastTime.current === null) {
+        lastTime.current = currentTime;
+        requestAnimationFrame(tick);
+        return;
+      }
+      const deltaTime = currentTime - lastTime.current;
+      timeAccumulator.current += deltaTime;
+      lastTime.current = currentTime;
+
+      const intervalMs = passiveIncome > 0 ? 1000 / passiveIncome : Infinity;
+      let drops = 0;
+      while (timeAccumulator.current >= intervalMs) {
+        timeAccumulator.current -= intervalMs;
+        drops++;
+      }
+
+      if (drops > 0) {
+        addClicks(drops);
+      }
+
+      requestAnimationFrame(tick);
+    },
+    [addClicks, passiveIncome],
+  );
+
   useEffect(() => {
-    console.log('passiveIncome:', passiveIncome);
-
     if (passiveIncome <= 0) return;
-
-    const intervalId = setInterval(() => {
-      applyPassiveClicks();
-    }, TICK_INTERVAL_MS);
+    const id = requestAnimationFrame(tick);
 
     return () => {
-      clearInterval(intervalId);
+      cancelAnimationFrame(id);
     };
-  }, [applyPassiveClicks, passiveIncome]);
+  }, [passiveIncome, tick]);
 };
