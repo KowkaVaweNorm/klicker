@@ -8,7 +8,7 @@ import { enableMocking } from 'app/mockWorker/mockWorkerSetup';
 import { store } from 'app/providers/StoreProvider';
 import { ErrorPage } from 'widgets/ErrorPage';
 
-enableMocking().then(() => {
+// enableMocking().then(() => {
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
       <BrowserRouter>
@@ -20,4 +20,4 @@ enableMocking().then(() => {
       </BrowserRouter>
     </StrictMode>,
   );
-});
+// });

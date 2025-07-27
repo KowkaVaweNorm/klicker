@@ -6,5 +6,9 @@ export {
   useGameStateActions,
 } from './model/slice/GameState';
 
-export { useGameStateClickPower, useGameStateClicks } from './model/selectors';
+export {
+  useGameStateClickPower,
+  useGameStateClicks,
+  useCanBuyUpgrade,
+} from './model/selectors';
 export type { TGameStateSchema } from './model/types';

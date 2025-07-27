@@ -9,10 +9,15 @@ type UpgrateEffect = {
 };
 
 export type Upgrade = {
+  id: string;
   title: string;
   description: string;
   image_src: string;
-  cost: number;
-  cost_type: 'stone' | 'diamond';
+  cost: {
+    value: number;
+    resource: 'stone' | 'diamond';
+    multiplier: number;
+    growth: 'linear' | 'exponential';
+  };
   effect: UpgrateEffect;
 };

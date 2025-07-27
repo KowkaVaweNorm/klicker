@@ -1,18 +1,5 @@
 // Основные темные тона
 $bg-color: #0d0f17;
-// $primary-color: #2a2c3b;
-// $secondary-color: #1f212e;
-
-// // Земляные/грязные акценты
-// $earth-brown: #6b5e48;
-// $muddy-green: #556b3c;
-// $rust-orange: #b85b3e;
-
-// // Цвет бриллианта
-// $diamond-base: #a0dfff;
-// $diamond-highlight: #e0f7ff;
-// $diamond-shadow: #3a5f8c;
-// $glow-effect: #00f8ff;
 
 .wrap_main {
   touch-action: pan-x pan-y;
@@ -39,7 +26,6 @@ $bg-color: #0d0f17;
     width: 100%;
     height: 100%;
     min-height: 950px;
-    // overflow: hidden;
     pointer-events: none;
     z-index: 1;
   }
@@ -56,20 +42,29 @@ $bg-color: #0d0f17;
     flex-direction: column;
     gap: 10%;
     z-index: 2;
+
     // border: 1px solid white;
     justify-content: center;
+
+    @media screen and (width > 1250px) {
+      min-height: 800px;
+    }
     @media screen and (width < 1250px) {
       align-items: center;
       justify-content: initial;
     }
 
+    height: 100vh;
+    & > *:nth-child(2) {
+      height: 30vh;
+    }
     .upgrades {
       position: absolute;
       left: 0;
       top: 390px;
       bottom: 100px;
-      // height: calc(100vh - 360px);
       max-height: calc(100vh - 390px);
+      min-height: 160px;
       @media screen and (width < 1250px) {
         position: static;
         bottom: 0px;
@@ -79,6 +74,10 @@ $bg-color: #0d0f17;
   @supports (height: 100dvh) {
     .middle_column {
       height: 100dvh;
+      & > *:nth-child(2) {
+        height: 30dvh;
+        width: 30vw;
+      }
     }
   }
 }

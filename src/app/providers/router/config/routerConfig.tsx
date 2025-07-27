@@ -1,5 +1,5 @@
-import { type AppRoutesProps } from '@/shared/types/router';
 import { MainPage } from 'pages/MainPage';
+import { type AppRoutesProps } from '@/shared/types/router';
 import {
   AppRoutes,
   getRouteAbout,

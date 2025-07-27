@@ -29,7 +29,8 @@ export const TapZone = (props: TProps) => {
   const [sparks, setSparks] = useState<TSpark[]>([]);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const activeTouchIds = new Set<number>();
+  const activeTouchIdsRef = useRef<Set<number>>(new Set());
+  const activeTouchIds = activeTouchIdsRef.current;
 
   const handleTouchStart = (e: React.TouchEvent) => {
     // Обрабатываем каждую новую точку касания

@@ -1,9 +1,13 @@
-import { useSelector } from 'react-redux';
+import { useAppSelector } from 'shared/types/redux';
 import { gameStateSlice } from './slice/GameState';
 
 export const useGameStateClicks = () =>
-  useSelector(gameStateSlice.selectors.getClicks);
+  useAppSelector(gameStateSlice.selectors.getClicks);
 export const useGameStateClickPower = () =>
-  useSelector(gameStateSlice.selectors.getClickPower);
+  useAppSelector(gameStateSlice.selectors.getClickPower);
 export const usePassiveIncome = () =>
-  useSelector(gameStateSlice.selectors.getPassiveIncome);
+  useAppSelector(gameStateSlice.selectors.getPassiveIncome);
+export const useCanBuyUpgrade = (upgradeId: string) =>
+  useAppSelector((state) =>
+    gameStateSlice.selectors.getCanBuyUpgrade(state, upgradeId),
+  );

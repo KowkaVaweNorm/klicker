@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { upgradeList } from '../../model/upgradeList';
+import { upgradeList } from '../../../../entities/Upgrade/model/upgradeList';
 import { UpgradeItem } from '../UpgradeItem/UpgradeItem';
 import cls from './UpgradeList.module.scss';
 
