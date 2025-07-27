@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { useRef, useState } from 'react';
 import { useGameStateActions } from 'features/GameState';
-import Stone from 'shared/assets/images/stone_full.png';
+// import Stone from 'shared/assets/images/stone_full.png';
+import Stone from 'shared/assets/images/stone_cracked_v1.png';
 import cls from './TapZone.module.scss';
 
 type TProps = {
